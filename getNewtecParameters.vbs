@@ -1,3 +1,13 @@
+'Author: Ofek Kazes
+'This script utilizes the Newtec hub application API's to create a CSV file containing information of the terminals in the hub.
+'First it uses the REST API of the cms application, to get the terminal names, 
+'then it connects (if there is no connection) to the SOAP API of the DataMiner application.
+'Using the connection id, the script gets the parameters of each terminal, and then after all the data is taken,
+'the script writes it all in a .csv file.
+'This script is used in addition to another script that is reading the information from the file to use in monitoring applications,
+'such as Paessler PRTG.
+
+
 Set objFSO=CreateObject("Scripting.FileSystemObject")
 Dim connectionID, triedConnection, idArr, dmaID, DataminerIDArr, terminalArray
 triedConnection = FALSE
